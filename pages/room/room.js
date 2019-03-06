@@ -22,7 +22,7 @@ Page({
 },
   init: function(){
     if (!app.globalData.client) {
-      app.globalData.client = new Paho.MQTT.Client('i.icoolpy.com', 8443, '/', app.globalData.userInfo.nickName)
+      app.globalData.client = new Paho.MQTT.Client('127.0.0.1', 8083, '/', app.globalData.userInfo.nickName)
     }
   },
   bindKeyInput: function (e) {
@@ -122,7 +122,7 @@ Page({
       app.globalData.client.connect({
         userName: app.globalData.userInfo.nickName,
         password: '',
-        useSSL: true,
+        useSSL: false,
         cleanSession: false,
         keepAliveInterval: 60,
         onSuccess: function () {
